@@ -23,3 +23,13 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+//@SpringBootApplication이 선언된 MainClass 설정
+bootJar{
+	mainClass = 'com.example.firstproject.FirstprojectApplication'
+}
+
+bootRun {
+	String activeProfile = System.properties['spring.profiles.active']
+	systemProperty "spring.profiles.active", activeProfile
+}
